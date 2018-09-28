@@ -1,5 +1,5 @@
 /* ========================================================
-======================= GLOABAL STYLES =====================
+===================== Estilos Globales ====================
 ======================================================== */
 
 *, *:after, *:before {
@@ -51,70 +51,6 @@ button:hover{
   background: grey;
 }
 
-
-/* Estos divs son los pixeles */
-/* div {
-  background-color: white;
-  height: 15px;
-  width: 15px;
-  display: inline-block;
-  outline: 1px solid black;
-  margin: 0;
-  padding: 0;
-  line-height: 0%;
-  position: relative;
-  vertical-align: sub;
-} */
-
-/* ========================================================
-======================= CANVAS STYLES =====================
-======================================================== */
-
-#grilla-pixeles {
-  background-color: white;
-  width: 1036px;
-  height: 644px;
-  overflow: hidden;
-}
-
-
-.pixel-grilla {
-  background-color: #f8f8f8;
-  height: 19.5px;
-  width: 19.5px;
-  display: inline-block;
-  outline: 1px solid black;
-  margin: 0;
-  padding: 0;
-  line-height: 0%;
-  position: relative;
-  vertical-align: sub;
-}
-
-/* ====================================================== */
-
-
-/* ========================================================
-======================= PALETA STYLES =====================
-======================================================== */
-
-#paleta {
-  width: 20%;
-}
-
-.color-paleta {
-  display: inline-block;
-  height: 25px;
-  width: 25px;
-  cursor: pointer;
-  margin: 4px;
-  border-radius: 20px;
-}
-
-/* ====================================================== */
-
-
-
 ul {
   list-style: none;
   padding: 0;
@@ -151,6 +87,72 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 input[type="color"]::-webkit-color-swatch {
 	border: none;
 }
+
+
+/* Estos divs son los pixeles */
+/* div {
+  background-color: white;
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+  outline: 1px solid black;
+  margin: 0;
+  padding: 0;
+  line-height: 0%;
+  position: relative;
+  vertical-align: sub;
+} */
+
+/* ========================================================
+====================== Estilos Camvas =====================
+======================================================== */
+
+#grilla-pixeles {
+  background-color: white;
+  width: 1036px;
+  height: 644px;
+  overflow: hidden;
+}
+
+
+.pixel-grilla {
+  background-color: #f8f8f8;
+  height: 19.5px;
+  width: 19.5px;
+  display: inline-block;
+  outline: 1px solid black;
+  margin: 0;
+  padding: 0;
+  line-height: 0%;
+  position: relative;
+  vertical-align: sub;
+}
+
+/* ====================================================== */
+
+
+/* ========================================================
+====================== Estilos Peleta =====================
+======================================================== */
+
+/* Este id estaba como #palette pero no referenciaba a nada */
+#paleta {
+  width: 20%;
+}
+
+.color-paleta {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  margin: 4px;
+  border-radius: 20px;
+}
+
+/* ====================================================== */
+
+
+
 
 
 
@@ -200,8 +202,8 @@ img {
   margin: 0;
   position: relative;
   border-radius: 20px;
-
 }
+
 #indicador-de-color:after {
   content: "";
   position: absolute;
@@ -290,8 +292,44 @@ img {
 }
 
 /* ========================================================
-======================= MODAL STYLES ======================
+====================== Estilos Modal ======================
 ======================================================== */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  -webkit-transform: translate(-50%, -50%) scale(0.5);
+          transform: translate(-50%, -50%) scale(0.5);
+  width: 100%;
+  max-width: 1440px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.button-modal {
+  background: lightgrey;
+  border-radius: 20px;
+  color: black;
+  font-family: 'Press Start 2P';
+  font-size: .7em;
+  line-height: 30px;
+  display: inline-block;
+  margin: 0 5px;
+  width: 100%;
+  -webkit-transition: all 0.25s ease-in-out 0s;
+  transition: all 0.25s ease-in-out 0s;
+  cursor: pointer;
+}
+
+.modal .button-modal {
+  width: 15%;
+}
+
+.button-modal:hover{
+  background: grey;
+}
 
 .overlay {
   position: fixed;
@@ -316,19 +354,6 @@ input[type="checkbox"]:checked ~ .overlay {
           transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 100;
-  -webkit-transform: translate(-50%, -50%) scale(0.5);
-          transform: translate(-50%, -50%) scale(0.5);
-  width: 100%;
-  max-width: 1440px;
-  opacity: 0;
-  pointer-events: none;
-}
-
 input[type="checkbox"]:checked ~ .modal {
   pointer-events: auto;
   opacity: 1;
@@ -337,24 +362,4 @@ input[type="checkbox"]:checked ~ .modal {
   -webkit-transition: transform 0.5s ease, opacity 0.5s ease;
           transition: transform 0.5s ease, opacity 0.5s ease;
   transition-delay: 0.1s;
-}
-
-
-.button-modal {
-  background: lightgrey;
-  border-radius: 20px;
-  color: black;
-  font-family: 'Press Start 2P';
-  font-size: .7em;
-  line-height: 30px;
-  display: inline-block;
-  margin: 0 5px;
-  width: 100%;
-  -webkit-transition: all 0.25s ease-in-out 0s;
-  transition: all 0.25s ease-in-out 0s;
-  cursor: pointer;
-}
-
-.button-modal:hover{
-  background: grey;
 }

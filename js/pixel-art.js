@@ -4,7 +4,7 @@ function init() {
   detectarMouse();
   armarPaleta(nombreColores);
   armarGrilla();
-  initialEvents();
+  cargarEventosIniciales();
   cargarSuperheroeEnPantalla();
 }
 
@@ -41,9 +41,9 @@ var $grillaPixeles = $('#grilla-pixeles');
 var $selectorColor = $('.color-paleta');
 
 
-//
-// FUNCIONES GLOBALES
-//
+/* ============================================================
+====================== Funciones Globales =====================
+============================================================ */
 
 // Funcion detectar estado mouse
 function detectarMouse() {
@@ -83,7 +83,7 @@ function armarGrilla() {
 
 
 // Funcion que carga los eventos iniciales
-function initialEvents() {
+function cargarEventosIniciales() {
   addEvent("#color-personalizado", "change", seleccionarColorPersonalizado);
   addEvent(".color-paleta", "click", modificarColorPaleta);
   addEvent("#borrar", "click", borrarTodo);
@@ -93,7 +93,6 @@ function initialEvents() {
   addEvent("#eye-drop", "click", eyedropTool);
   addEvent("#bucket", "click", bucket);
 }
-
 
 
 // Funcion que carga cada superhero en la pantalla
@@ -113,7 +112,9 @@ function cargarSuperheroeEnPantalla() {
 }
 
 
-// HELPER FUNCTIONS
+/* ============================================================
+======================= Helper functions ======================
+============================================================ */
 
 // Funciones para agregar o quitar eventos
 function addEvent(target, trigger, action) {
@@ -146,9 +147,9 @@ function pintarPixel() {
   this.style.backgroundColor = selectedColor;
 }
 
-//
-// Funciones de las herramientas
-//
+/* ============================================================
+================= Funciones de las herramientas ===============
+============================================================ */
 
 // Borrar todo al hacer click en el boton borrar
 function borrarTodo() {
@@ -163,6 +164,8 @@ function seleccionarColorPersonalizado() {
   indicadorColor.style.backgroundColor = colorActual;
 }
 
+// Selecciona un color del canvas y lo pone en el indicador de color.
+// Se remueven los eventos actuales y se agregan dos nuevos
 function eyedropTool() {
   let initialState = indicadorColor.style.backgroundColor;
   removeEvent('.pixel-grilla', 'click', pintarPixel);
@@ -170,6 +173,7 @@ function eyedropTool() {
   addEvent('.pixel-grilla', 'click', modificarColorPaleta);
   addEvent('.pixel-grilla', 'click', checkState);
 
+  // funcion interna para chequear el estado del indicador de color, al hacer click, si cambia el color volver al estado nomar
   function checkState() {
     if (indicadorColor.style.backgroundColor != initialState) {
       addEvent('.pixel-grilla', 'click', pintarPixel);
