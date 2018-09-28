@@ -1,0 +1,360 @@
+/* ========================================================
+======================= GLOABAL STYLES =====================
+======================================================== */
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+  background-color: black;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+h1 {
+  color: white;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  font-family: 'Press Start 2P';
+}
+
+.cursor-personalizado {
+  cursor: url(../img/cursor.png), auto;
+}
+
+button {
+  background: lightgrey;
+  border: none;
+  border-radius: 20px;
+  color: black;
+  font-family: 'Press Start 2P';
+  font-size: .7em;
+  line-height: 30px;
+  display: block;
+  width: 100%;
+  margin: 10px 5px;
+  -webkit-transition: all 0.25s ease-in-out 0s;
+  transition: all 0.25s ease-in-out 0s;
+  cursor: pointer;
+}
+button:hover{
+  background: grey;
+}
+
+
+/* Estos divs son los pixeles */
+/* div {
+  background-color: white;
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+  outline: 1px solid black;
+  margin: 0;
+  padding: 0;
+  line-height: 0%;
+  position: relative;
+  vertical-align: sub;
+} */
+
+/* ========================================================
+======================= CANVAS STYLES =====================
+======================================================== */
+
+#grilla-pixeles {
+  background-color: white;
+  width: 1036px;
+  height: 644px;
+  overflow: hidden;
+}
+
+
+.pixel-grilla {
+  background-color: #f8f8f8;
+  height: 19.5px;
+  width: 19.5px;
+  display: inline-block;
+  outline: 1px solid black;
+  margin: 0;
+  padding: 0;
+  line-height: 0%;
+  position: relative;
+  vertical-align: sub;
+}
+
+/* ====================================================== */
+
+
+/* ========================================================
+======================= PALETA STYLES =====================
+======================================================== */
+
+#paleta {
+  width: 20%;
+}
+
+.color-paleta {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  margin: 4px;
+  border-radius: 20px;
+}
+
+/* ====================================================== */
+
+
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 10px;
+  text-align: left;
+}
+p {
+  text-transform: uppercase;
+  font-size: .6em;
+  text-align: right;
+}
+
+
+h3 {
+  color: white;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  font-family: 'Press Start 2P';
+}
+
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+  padding: 0;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+
+
+.custom {
+  color: white;
+}
+
+
+
+main {
+  width: 25%;
+  padding: 0 25px;
+}
+
+#container {
+  width: 100%;
+  height: 100vh;
+  margin: 20px auto;
+  display: grid;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+#container, li, .imgs {
+ display: flex;
+ align-items:center;
+}
+.imgs {
+  flex-wrap: wrap;
+}
+.imgs li {
+  width: 25%;
+  margin: 0;
+  align-items: flex-start;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+ .input-color li {
+   margin: 10px 0;
+   justify-content: space-between;
+ }
+#indicador-de-color {
+  height: 32px;
+  width: 32px;
+  border: 1px solid white;
+  margin: 0;
+  position: relative;
+  border-radius: 20px;
+
+}
+#indicador-de-color:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: .5px;
+  left: 1.5px;
+  height: 29px;
+  width: 29px;
+  background: url(../img/empty.gif);
+  border-radius: 20px;
+}
+
+#indicador-de-color-mensaje {
+  color: white;
+}
+
+
+@media only screen and (max-width: 1060px) {
+  main {
+    width: 100%;
+  }
+  #container {
+    display: block;
+    width: 100%;
+  }
+
+  #grilla-pixeles {
+    width: 1036px;
+    height: 644px;
+  }
+
+  .pixel-grilla {
+    width: 15px;
+    height: 15px;
+  }
+
+}
+
+@media only screen and (max-width: 795px) {
+  main {
+    width: 100%;
+  }
+  #container {
+    display: block;
+    width: 100%;
+  }
+
+}
+@media only screen and (max-width: 600px) {
+    #grilla-pixeles {
+       width: 477px;
+       height: 297px;
+    }
+    .pixel-grilla {
+      height: 9px;
+      width: 9px;
+    }
+      .imgs li {
+      width: 350px;
+      margin: 0 auto
+    }
+}
+@media only screen and (max-width: 375px) {
+  #grilla-pixeles {
+   width: 320px;
+   height: 179px;
+  }
+
+  div {
+    line-height: 0%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pixel-grilla {
+    height: 6px;
+    width: 6px;
+    }
+    .imgs {
+      display: block;
+    }
+     .imgs li {
+    width: 100px;
+    margin: 0 auto;
+  }
+}
+
+/* ========================================================
+======================= MODAL STYLES ======================
+======================================================== */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background: #202020;
+  pointer-events: none;
+  opacity: 0;
+  webkit-transform: scale(.5);
+         transform: scale(.5);
+}
+
+input[type="checkbox"]:checked ~ .overlay {
+  pointer-events: auto;
+  opacity: 0.8;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: transform 0.5s ease, opacity 0.5s ease;
+          transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  -webkit-transform: translate(-50%, -50%) scale(0.5);
+          transform: translate(-50%, -50%) scale(0.5);
+  width: 100%;
+  max-width: 1440px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+input[type="checkbox"]:checked ~ .modal {
+  pointer-events: auto;
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+  -webkit-transition: transform 0.5s ease, opacity 0.5s ease;
+          transition: transform 0.5s ease, opacity 0.5s ease;
+  transition-delay: 0.1s;
+}
+
+
+.button-modal {
+  background: lightgrey;
+  border-radius: 20px;
+  color: black;
+  font-family: 'Press Start 2P';
+  font-size: .7em;
+  line-height: 30px;
+  display: inline-block;
+  margin: 0 5px;
+  width: 100%;
+  -webkit-transition: all 0.25s ease-in-out 0s;
+  transition: all 0.25s ease-in-out 0s;
+  cursor: pointer;
+}
+
+.button-modal:hover{
+  background: grey;
+}
