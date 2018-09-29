@@ -23,60 +23,66 @@
   <body>
     <header>
       <h1>Pixel Art</h1>
+      <button id="guardar" type="button" name="button">Guardar</button>
+      <section>
+        <input type="checkbox" id="modal-open" style="display:none">
+        <label for="modal-open">
+          <a id="select-super" class="button-modal">Elegi tu superheroe</a>
+        </label>
+
+
+        <section class="modal">
+          <h3>Usá a tu superhéroe favorito</h3>
+            <ul class="imgs">
+               <li> <img id="batman" src="img/batman.png" alt="batman"></li>
+               <li> <img id="wonder" src="img/wonder.png" alt="wonder woman"></li>
+               <li> <img id="flash" src="img/flash.png" alt="flash"></li>
+               <li> <img id="invisible" src="img/invisible.png" alt="invisible"></li>
+            </ul>
+            <label for="modal-open">
+              <a class="button-modal">Cerrar</a>
+            </label>
+        </section>
+
+        <section class="overlay"></section>
+      </section>
+
     </header>
     <section id="container">
-      <main>
-        <!-- Color selector section -->
-        <ul class="input-color">
-          <li>
-            <span id="indicador-de-color" class="cursor-personalizado"></span>
-            <p id="indicador-de-color-mensaje">Pincel</p>
-          </li>
-          <li>
-            <input id="color-personalizado" class="input-color" type="color" name="name" value="#ffffff">
-            <p class="custom input-color">rueda de colores</p>
-          </li>
-          <li>
-            <input id="eye-drop" class="cursor-personalizado">
-            <p class="custom input-color">Eye Drop</p>
-          </li>
-          <li>
-            <input id="bucket" class="cursor-personalizado">
-            <p class="custom input-color">Bucket</p>
-          </li>
-        </ul>
-        <!-- Save and delete buttons -->
-        <button id="guardar" type="button" name="button">Guardar</button>
-        <button id="borrar" type="button" name="button">Borrar todo</button>
+      <section id="contenedor-colores">
+        <div id="paleta"></div>
+        <main>
+          <!-- Color selector section -->
+          <ul class="input-color">
+            <li>
+              <span id="indicador-de-color" class="cursor-personalizado"></span>
+              <p id="indicador-de-color-mensaje">Pincel</p>
+            </li>
+            <li>
+              <input id="color-personalizado" class="input-color" type="color" name="name" value="#ffffff">
+              <p class="custom input-color">rueda de colores</p>
+            </li>
+            <li>
+              <input id="eye-drop" class="cursor-personalizado">
+              <p class="custom input-color">Eye Drop</p>
+            </li>
+            <li>
+              <input id="bucket" class="cursor-personalizado">
+              <p class="custom input-color">Bucket</p>
+            </li>
+          </ul>
+          <!-- Save and delete buttons -->
+                <button id="borrar" type="button" name="button">Borrar todo</button>
 
-        <!-- Modal for selection of superhero -->
-        <section>
-          <input type="checkbox" id="modal-open" style="display:none">
-          <label for="modal-open">
-            <a class="button-modal">Elegi tu superheroe</a>
-          </label>
+          <!-- Modal for selection of superhero -->
 
+          <!-- END MODAL -->
 
-          <section class="modal">
-            <h3>Usá a tu superhéroe favorito</h3>
-              <ul class="imgs">
-                 <li> <img id="batman" src="img/batman.png" alt="batman"></li>
-                 <li> <img id="wonder" src="img/wonder.png" alt="wonder woman"></li>
-                 <li> <img id="flash" src="img/flash.png" alt="flash"></li>
-                 <li> <img id="invisible" src="img/invisible.png" alt="invisible"></li>
-              </ul>
-              <label for="modal-open">
-                <a class="button-modal">Cerrar</a>
-              </label>
-          </section>
+        </main>
+      </section>
 
-          <section class="overlay"></section>
-        </section>
-        <!-- END MODAL -->
-
-      </main>
       <div id="grilla-pixeles" class="cursor-personalizado"></div>
-      <section id="paleta"></section>
+
     </section>
 
 
