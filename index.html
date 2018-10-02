@@ -6,7 +6,7 @@
   <title>Pixel Art Maker</title>
   <link rel="icon" type="image/png" href="img/batman.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" />
+  <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
@@ -19,7 +19,6 @@
   <script src="js/flash.js"></script>
   <script src="js/wonder.js"></script>
   <script src="js/invisible.js"></script>
-  <script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script>
   <script defer src="js/recursos.js"></script>
   <script defer src="js/pixel-art.js"></script>
 </head>
@@ -31,7 +30,9 @@
 
     <section id="container">
       <section id="contenedor-colores">
-        <div id="paleta"></div>
+        <div id="container-paleta" data-simplebar>
+          <div id="paleta"></div>
+        </div>
         <main>
           <!-- Color selector section -->
           <ul class="input-color">
@@ -55,15 +56,12 @@
           </ul>
 
           <button id="borrar" type="button" name="button">Borrar todo</button>
-
-
-
         </main>
-        <!-- Modal for selection of superhero -->
       </section>
 
       <div id="grilla-pixeles" class="cursor-personalizado"></div>
 
+      <!-- Modal para seleccionar superheroe -->
       <section>
         <input type="checkbox" id="modal-open" style="display:none">
         <label for="modal-open">
@@ -89,6 +87,6 @@
     </section>
     <!-- END MODAL -->
 
-
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script>
   </body>
 </html>

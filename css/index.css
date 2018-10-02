@@ -34,7 +34,6 @@ button {
   line-height: 30px;
   display: block;
   width: 100%;
-  /* margin: 10px 5px; */
   -webkit-transition: all 0.25s ease-in-out 0s;
   transition: all 0.25s ease-in-out 0s;
   cursor: pointer;
@@ -62,23 +61,6 @@ h3 {
   margin-top: 10px;
   font-family: 'Press Start 2P';
 }
-
-/* input[type="color"] {
-	-webkit-appearance: none;
-	border: none;
-  padding: 0;
-  height: 40px;
-  width: 40px;
-  cursor: pointer;
-  border-radius: 20px;
-} */
-
-/* input[type="color"]::-webkit-color-swatch-wrapper {
-	padding: 0;
-} */
-/* input[type="color"]::-webkit-color-swatch {
-	border: none;
-} */
 
 /* ========================================================
 ==================== Estilos Title Bar ====================
@@ -112,7 +94,6 @@ h3 {
   width: 300px;
 }
 
-/* ====================================================== */
 
 /* ========================================================
 =================== Estilos Contenedor =====================
@@ -127,7 +108,6 @@ h3 {
   grid-gap: 40px;
 }
 
-/* ====================================================== */
 
 /* ========================================================
 ====================== Estilos Camvas =====================
@@ -149,7 +129,6 @@ h3 {
   outline: .5px solid black;
 }
 
-/* ====================================================== */
 
 
 /* ========================================================
@@ -160,17 +139,21 @@ h3 {
   height: 650px;
 }
 
-#paleta {
+#container-paleta {
   width: 100%;
   height: 400px;
-  border-radius: 30px;
   overflow-y: scroll;
+  /* background-color: lightgrey; */
+}
+
+#paleta {
+  /* position: relative; */
 }
 
 .color-paleta {
   display: inline-block;
-  height: 25px;
-  width: 25px;
+  height: 27px;
+  width: 27px;
   cursor: pointer;
   margin: 3px;
   border-radius: 50%;
@@ -180,9 +163,14 @@ h3 {
   margin-top: 20px;
 }
 
+.simplebar-scrollbar {
+  background-color: lightgrey;
+}
+.simplebar-scrollbar:before {
+  background-color: grey;
+}
 
-
-/* ====================================================== */
+/* =========== Estilos Herramientas ========== */
 
 
  .input-color li {
@@ -209,30 +197,6 @@ h3 {
    -webkit-transition: all 0.25s ease-in-out 0s;
            transition: all 0.25s ease-in-out 0s;
    cursor: pointer;
- }
-
- #indicador-de-color {
-   /* height: 30px; */
-   /* width: 30px; */
-   /* border: 1px solid white; */
-   /* margin: 0; */
-   /* position: relative; */
-   /* z-index: 100; */
- }
-
- /* #indicador-de-color:after {
-   content: "";
-   position: absolute;
-   z-index: 1;
-   top: -1px;
-   left: -1px;
-   height: 29px;
-   width: 29px;
-   background: url(../img/empty.gif);
- } */
-
- #indicador-de-color-mensaje {
-   /* color: white; */
  }
 
 
@@ -328,46 +292,161 @@ input[type="checkbox"]:checked ~ .modal {
 ======================================================== */
 
 @media only screen and (max-width: 1060px) {
-  main {
-    width: 100%;
-  }
   #container {
     display: block;
+    padding: 0;
+  }
+
+  #grilla-pixeles {
+    width: 950px;
+    height: 570px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  .title-bar {
+    text-align: left;
+    padding-left: 20px;
+  }
+  #contenedor-colores {
+    display: flex;
+    flex-direction: row-reverse;
     width: 100%;
+    height: 300px;
+  }
+
+  #container-paleta {
+    height: 300px;
+    width: 700px;
+    margin-top: 30px;
+  }
+
+  main {
+    width: 40%;
+    padding-left: 10px;
+    height: 300px;
+  }
+
+  .color-paleta {
+    width: 23px;
+    height: 23px;
   }
 }
 
 @media only screen and (max-width: 795px) {
-  main {
-    width: 100%;
-  }
   #container {
     display: block;
-    width: 100%;
+    padding: 0;
   }
-}
-@media only screen and (max-width: 600px) {
-    #grilla-pixeles {
-       width: 477px;
-       height: 297px;
-    }
 
-      .imgs li {
-      width: 350px;
-      margin: 0 auto
-    }
-}
-@media only screen and (max-width: 375px) {
   #grilla-pixeles {
-   width: 320px;
-   height: 179px;
+    width: 680px;
+    height: 440px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
   }
 
-    .imgs {
-      display: block;
-    }
-     .imgs li {
-    width: 100px;
-    margin: 0 auto;
+  .title-bar {
+    text-align: left;
+    padding-left: 20px;
   }
+  #contenedor-colores {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    height: 300px;
+  }
+
+  #container-paleta {
+    height: 300px;
+    width: 700px;
+  }
+
+  main {
+    width: 40%;
+    padding-left: 10px;
+    height: 300px;
+  }
+}
+@media only screen and (max-width: 490px) {
+  .title-bar {
+    text-align: center;
+  }
+
+  #container {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+
+  #grilla-pixeles {
+    width: 470px;
+    height: 300px;
+    margin: 0 auto;
+    margin-bottom: 0;
+    margin-top: 40px;
+  }
+
+  .title-bar {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  #contenedor-colores {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 400px;
+  }
+
+  #container-paleta {
+    width: 450px;
+    height: 330px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  main {
+    width: 100%;
+    padding-right: 10px;
+  }
+
+  .color-paleta {
+    width: 13px;
+    height: 13px;
+  }
+
+
+  p {
+    font-size: .8em;
+    text-align: right;
+  }
+
+  #guardar {
+    top: 100px;
+    left: 40%;
+  }
+
+  #select-super {
+    top: 65px;
+    left: 20%;
+  }
+
+  .imgs {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imgs li {
+    width: 50%;
+  }
+
+.modal .button-modal {
+    width: 50%;
+  }
+}
 }

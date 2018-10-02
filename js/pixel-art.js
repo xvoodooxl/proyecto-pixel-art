@@ -35,11 +35,6 @@ var indicadorColor = document.getElementById('indicador-de-color');
 var estadoMouse;
 var estadoMouseE;
 
-// Variables Jquery
-var $paleta = $('#paleta');
-var $grillaPixeles = $('#grilla-pixeles');
-var $selectorColor = $('.color-paleta');
-
 
 /* ============================================================
 ====================== Funciones Globales =====================
