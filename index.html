@@ -6,6 +6,8 @@
   <title>Pixel Art Maker</title>
   <link rel="icon" type="image/png" href="img/batman.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
   <script src="js/jquery-3.1.1.js"></script>
@@ -17,19 +19,56 @@
   <script src="js/flash.js"></script>
   <script src="js/wonder.js"></script>
   <script src="js/invisible.js"></script>
+  <script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script>
   <script defer src="js/recursos.js"></script>
   <script defer src="js/pixel-art.js"></script>
 </head>
   <body>
-    <header>
+    <header class="title-bar">
       <h1>Pixel Art</h1>
       <button id="guardar" type="button" name="button">Guardar</button>
+    </header>
+
+    <section id="container">
+      <section id="contenedor-colores">
+        <div id="paleta"></div>
+        <main>
+          <!-- Color selector section -->
+          <ul class="input-color">
+            <li>
+              <span id="indicador-de-color" class="cursor-personalizado"><i class="fas fa-brush fa-2x"></i></span>
+              <p id="indicador-de-color-mensaje">Pincel</p>
+            </li>
+            <li>
+              <input id="color-personalizado" class="input-color" type="color" name="name" value="#ffffff" style="display:none">
+              <label for="color-personalizado"><i class="fas fa-palette fa-2x"></i></label>
+              <p class="custom input-color">rueda de colores</p>
+            </li>
+            <li>
+              <span id="eye-drop" class="cursor-personalizado"><i class="fas fa-eye-dropper fa-2x"></i></span>
+              <p class="input-color">Seleccionar Color</p>
+            </li>
+            <li>
+              <span id="bucket" class="cursor-personalizado"><i class="fas fa-fill-drip fa-2x"></i></span>
+              <p class="input-color">Pintar todo</p>
+            </li>
+          </ul>
+
+          <button id="borrar" type="button" name="button">Borrar todo</button>
+
+
+
+        </main>
+        <!-- Modal for selection of superhero -->
+      </section>
+
+      <div id="grilla-pixeles" class="cursor-personalizado"></div>
+
       <section>
         <input type="checkbox" id="modal-open" style="display:none">
         <label for="modal-open">
           <a id="select-super" class="button-modal">Elegi tu superheroe</a>
         </label>
-
 
         <section class="modal">
           <h3>Usá a tu superhéroe favorito</h3>
@@ -40,50 +79,15 @@
                <li> <img id="invisible" src="img/invisible.png" alt="invisible"></li>
             </ul>
             <label for="modal-open">
-              <a class="button-modal">Cerrar</a>
+              <a id="cerrar-modal" class="button-modal">Cerrar</a>
             </label>
         </section>
 
         <section class="overlay"></section>
       </section>
 
-    </header>
-    <section id="container">
-      <section id="contenedor-colores">
-        <div id="paleta"></div>
-        <main>
-          <!-- Color selector section -->
-          <ul class="input-color">
-            <li>
-              <span id="indicador-de-color" class="cursor-personalizado"></span>
-              <p id="indicador-de-color-mensaje">Pincel</p>
-            </li>
-            <li>
-              <input id="color-personalizado" class="input-color" type="color" name="name" value="#ffffff">
-              <p class="custom input-color">rueda de colores</p>
-            </li>
-            <li>
-              <input id="eye-drop" class="cursor-personalizado">
-              <p class="custom input-color">Eye Drop</p>
-            </li>
-            <li>
-              <input id="bucket" class="cursor-personalizado">
-              <p class="custom input-color">Bucket</p>
-            </li>
-          </ul>
-          <!-- Save and delete buttons -->
-                <button id="borrar" type="button" name="button">Borrar todo</button>
-
-          <!-- Modal for selection of superhero -->
-
-          <!-- END MODAL -->
-
-        </main>
-      </section>
-
-      <div id="grilla-pixeles" class="cursor-personalizado"></div>
-
     </section>
+    <!-- END MODAL -->
 
 
   </body>

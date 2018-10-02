@@ -47,17 +47,10 @@ var $selectorColor = $('.color-paleta');
 
 // Funcion detectar estado mouse
 function detectarMouse() {
-  window.addEventListener("mousedown", function() {
-    estadoMouse = true;
-  });
-  window.addEventListener("mouseup", function() {
-    estadoMouse = false;
-  });
-
-  // Añadido este evento para corregir el bug que seguia pintando si se arrastraba sin querer un elemento dejando la seleccion en true.
-  window.addEventListener("drag", function() {
-    estadoMouse = false;
-  });
+  window.addEventListener("mousedown", () => estadoMouse = true);
+  window.addEventListener("mouseup", () => estadoMouse = false);
+  // Corregir el bug, cuando hacer un drag deja la seleccion en true.
+  window.addEventListener("drag", () => estadoMouse = false);
 }
 
 
@@ -87,7 +80,7 @@ function cargarEventosIniciales() {
   addEvent("#color-personalizado", "change", seleccionarColorPersonalizado);
   addEvent(".color-paleta", "click", modificarColorPaleta);
   addEvent("#borrar", "click", borrarTodo);
-  addEvent(".pixel-grilla", "click", pintarPixel);
+  addEvent(".pixel-grilla", "mousedown", pintarPixel);
   addEvent(".pixel-grilla", "mouseover", pintarPixeles);
   addEvent("#guardar", "click", guardarPixelArt);
   addEvent("#eye-drop", "click", eyedropTool);
@@ -95,20 +88,12 @@ function cargarEventosIniciales() {
 }
 
 
-// Funcion que carga cada superhero en la pantalla
+// Funcion que carga cada superheroe en la pantalla
 function cargarSuperheroeEnPantalla() {
-  $("#batman").click(() => {
-    cargarSuperheroe(batman);
-  });
-  $("#wonder").click(() => {
-    cargarSuperheroe(wonder);
-  });
-  $("#flash").click(() => {
-    cargarSuperheroe(flash);
-  });
-  $("#invisible").click(() => {
-    cargarSuperheroe(invisible);
-  });
+  addEvent("#batman", "click", () => cargarSuperheroe(batman));
+  addEvent("#wonder", "click", () => cargarSuperheroe(wonder));
+  addEvent("#flash", "click", () => cargarSuperheroe(flash));
+  addEvent("#invisible", "click", () => cargarSuperheroe(invisible));
 }
 
 
@@ -127,23 +112,23 @@ function removeEvent(target, trigger, action) {
 
 
 // Funcion para seleccionar un color de la paleta
+
 function modificarColorPaleta(){
   let selectedColor = this.style.backgroundColor;
-  indicadorColor.style.backgroundColor = selectedColor;
+  indicadorColor.style.color = selectedColor;
 }
-
 
 // Function para pintar pixeles muchos pixeles
 function pintarPixeles() {
   if(estadoMouse){
-    let selectedColor = indicadorColor.style.backgroundColor;
+    let selectedColor = indicadorColor.style.color;
     this.style.backgroundColor = selectedColor;
     }
 }
 
 // Function para pintar un solo pixel
 function pintarPixel() {
-  let selectedColor = indicadorColor.style.backgroundColor;
+  let selectedColor = indicadorColor.style.color;
   this.style.backgroundColor = selectedColor;
 }
 
@@ -161,22 +146,22 @@ function borrarTodo() {
 // function colorPersonalizado
 function seleccionarColorPersonalizado() {
   colorActual = this.value;
-  indicadorColor.style.backgroundColor = colorActual;
+  indicadorColor.style.color = colorActual;
 }
 
 // Selecciona un color del canvas y lo pone en el indicador de color.
 // Se remueven los eventos actuales y se agregan dos nuevos
 function eyedropTool() {
-  let initialState = indicadorColor.style.backgroundColor;
-  removeEvent('.pixel-grilla', 'click', pintarPixel);
+  let initialState = indicadorColor.style.color;
+  removeEvent('.pixel-grilla', 'mousedown', pintarPixel);
   removeEvent('.pixel-grilla', 'mouseover', pintarPixeles);
   addEvent('.pixel-grilla', 'click', modificarColorPaleta);
   addEvent('.pixel-grilla', 'click', checkState);
 
   // funcion interna para chequear el estado del indicador de color, al hacer click, si cambia el color volver al estado nomar
   function checkState() {
-    if (indicadorColor.style.backgroundColor != initialState) {
-      addEvent('.pixel-grilla', 'click', pintarPixel);
+    if (indicadorColor.style.color != initialState) {
+      addEvent('.pixel-grilla', 'mousedown', pintarPixel);
       addEvent('.pixel-grilla', 'mouseover', pintarPixeles);
       removeEvent('.pixel-grilla', 'click', modificarColorPaleta);
       removeEvent('.pixel-grilla', 'click', checkState);
@@ -185,5 +170,5 @@ function eyedropTool() {
 }
 
 function bucket() {
-  $('.pixel-grilla').css('backgroundColor', indicadorColor.style.backgroundColor);
+  $('.pixel-grilla').css('backgroundColor', indicadorColor.style.color);
 }
